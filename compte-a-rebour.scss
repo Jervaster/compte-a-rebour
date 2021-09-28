@@ -1,0 +1,105 @@
+*{
+  font-size: 18px;
+  font-family:Helvetica;
+}
+body{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  .container{
+    height: 100vh;
+    width: 100%;
+    background-color: #141517;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .titre{
+      color: #C4E9FF;
+      position: absolute;
+      top: 120px;
+      text-align: center;
+      z-index: 0;
+      h1{
+        font-size: 57.5px;
+        margin: 10px;
+        text-shadow: 0px 0px 10px #019BF9,-0px 0px 10px #019BF9,-0px -0px 10px #019BF9,0px -0px 10px #019BF9,0px 0px 20px #005CC9,-0px 0px 20px #005CC9,-0px -0px 20px #005CC9,0px -0px 20px #005CC9;
+      }
+      p{
+        font-size: 12px;
+        font-style: italic;
+      }
+    }
+    form{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      height: 250px;
+      width: 350px;
+      padding: 2.5% 6%;
+      background-color: #774634;
+      border-radius: 20px;
+      z-index: 10;
+      .minuteur{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        .section{
+          width: 20%;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          #heurs{
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+          }
+          #minutes{
+            border-right: 0.5px solid #774634;
+            border-left: 0.5px solid #774634;
+          }
+          #secondes{
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+          }
+          .text{
+            width: 100%;
+            height: 60px;
+            text-align: center;
+            border: none;
+            font-size: 30px;
+          }
+          p{
+            font-size: 13px;
+            color: grey;
+            width: auto;
+            text-align: center;
+            margin-top: 8px;
+          }
+        }
+      }
+      .boutons{
+        width: 70%;
+        justify-content: space-around;
+        display: flex;
+        flex-wrap: wrap;
+        .button_stop{
+          width: 96%;
+          border-radius: 5px;
+          height: 50px;
+          margin-top: 4%;
+          border: none;
+        }
+        .button{
+          height: 50px;
+          width: 46%;
+          border-radius: 5px;
+          background-color: #E5E4E9;
+          border: none;
+        }
+      }
+    }
+  }
+}

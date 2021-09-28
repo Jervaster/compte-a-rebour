@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Compte à Rebour</title>
+      <meta charset="utf-8"/>
+      <link rel="stylesheet" href="compte-a-rebour.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="titre">
+        <h1>La cuenta regresiva</h1>
+        <p>Le compte à rebour pour les intimes</p>
+      </div>
+      <form name="formulaire">
+        <div class="minuteur">
+          <div class="section">
+            <input class="text" id="heurs" type="text" name="heurs" value= 0>
+            <p>Heures</p>
+          </div>
+          <div class="section">
+            <input class="text" id="minutes" type="text" name="minutes" value= 0>
+            <p>Minutes</p>
+          </div>
+          <div class="section">
+            <input class="text" id="secondes" type="text" name="secondes" value= 0>
+            <p>Secondes</p>
+          </div>
+        </div>
+        <div class="boutons">
+          <input class="button" type="button" value="Start" onClick="minutageGo();">
+          <input class="button" type="button" value="Pause" onClick="clearTimeout(attente)">
+          <input class="button_stop" type="reset" value="Reset" onClick="reset();">
+        </div>
+      </form>
+    </div>
+    <script type="text/javascript">
+    var nbs = 0;
+    var nbm = 0;
+    var nbh = 0;
+    var attente;
+    function minutageGo(){
+      nbs = window.document.formulaire.secondes.value;
+      nbm = window.document.formulaire.minutes.value;
+      nbh = window.document.formulaire.heurs.value;
+      if (nbs=="") {
+        nbs=0
+      }
+      if (nbm=="") {
+        nbm=0
+      }
+      if (nbh=="") {
+        nbh=0
+      }
+      if(nbh>0||nbm>0||nbs>0){
+
+        nbs = parseInt(nbs) - 1;
+        if (nbs<0) {
+          nbs=nbs+60;
+          nbm=parseInt(nbm)-1;
+          if(nbm<0 && nbh>0){
+            nbh= parseInt(nbh)-1;
+            nbm=nbm+60;
+          }
+        }
+        window.document.formulaire.secondes.value = nbs;
+        window.document.formulaire.minutes.value = nbm;
+        window.document.formulaire.heurs.value = nbh;
+        attente = setTimeout("minutageGo()", 1000);
+      }else if(nbh==0&&nbm==0&&nbs==0){
+        clearTimeout(attente)
+        window.alert("TIME OOOOOOOOOOOOOOOVER");
+      }
+    }
+    function reset(){
+      clearTimeout(attente);
+    }
+    </script>
+  </body>
+</html>
